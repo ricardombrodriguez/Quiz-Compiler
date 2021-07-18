@@ -16,13 +16,13 @@ This general objective can be broken down into 4 components:
 
 ## Goals of this project
 
-- 1. Conception and definition of a programming language (syntax and semantics).
-- 2. Implementation in *ANTLR4* of lexical and syntactical analysis of a compiler for the language;
-- 3. Definition of the semantic rules to be applied to a language, and their implementation in the context of the previous point.
-- 4. Writing of a document that describes a language (existing instruments and their meaning; examples of programs; etc.).
-- 5. Careful choice of a target language, where the syntax (*backend*) of the compiler can be implemented.
-- 6. Definition of code generation standards for language instructions.
-- 7. Complete Compiler Realization
+- Conception and definition of a programming language (syntax and semantics).
+- Implementation in *ANTLR4* of lexical and syntactical analysis of a compiler for the language;
+- Definition of the semantic rules to be applied to a language, and their implementation in the context of the previous point.
+- Writing of a document that describes a language (existing instruments and their meaning; examples of programs; etc.).
+- Careful choice of a target language, where the syntax (*backend*) of the compiler can be implemented.
+- Definition of code generation standards for language instructions.
+- Complete Compiler Realization
 
 ## Group members
 
