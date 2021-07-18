@@ -1,7 +1,5 @@
 # Quiz language
 
------
-
 Final project of the *Compilers* course.
 
 ## Theme of the project
