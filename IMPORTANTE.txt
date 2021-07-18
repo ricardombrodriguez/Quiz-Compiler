@@ -1,0 +1,24 @@
+Para quem fizer o visitor:
+
+Quando o programador fizer:
+    quiz "Teste de CD" -> Quiz quiz = new Quiz("Teste de CD")
+    quiz "Teste de CD" auto-corrective -> Quiz quiz = new Quiz("Teste de CD"); quiz.setAutoCorrective(true);
+
+    criar pergunta:
+        MultiChoice() // ainda não defini o que vai levar, mas seguramente id e array de opções
+        Logo, antes de criar uma pergunta podem criar as opções associadas (classe Option)
+
+    associar pergunta ao quiz:
+        Quando criam uma pergunta depois têm de fazer:
+        quiz.addQuestion(<pergunta que criaram>);
+
+    Existe o quiz.addOption(<id da pergunta>, <opção>)
+
+    show P1 with o1, o3, o4
+    quiz.showQuestion(id da pergunta e array de opções)
+
+    show P1
+    quiz.showQuestion(id da pergunta)
+
+
+

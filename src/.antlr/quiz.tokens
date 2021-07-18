@@ -1,0 +1,94 @@
+T__0=1
+T__1=2
+T__2=3
+T__3=4
+T__4=5
+T__5=6
+T__6=7
+T__7=8
+T__8=9
+T__9=10
+T__10=11
+T__11=12
+T__12=13
+T__13=14
+T__14=15
+T__15=16
+T__16=17
+OPCOESPOSSIVEIS=18
+NAME=19
+NUMBER=20
+QUIZ=21
+ADD_GROUP=22
+ADD=23
+ALL=24
+REMOVE=25
+DEFINEANSWER=26
+DEFINEMARK=27
+EVALUATION=28
+MULTICHOICE=29
+SHORTANSWER=30
+NUMERICANSWER=31
+ESSAY=32
+OPTION=33
+IMPORT=34
+FROM=35
+GET=36
+TO=37
+ANSWER=38
+SHOW=39
+SHUFFLE=40
+AND=41
+WITH=42
+GROUP=43
+CHOICE=44
+MATCH=45
+MATCHING=46
+QUESTION=47
+NEWLINE=48
+COMMENT=49
+MULTICOMM=50
+WS=51
+'auto-corrective'=1
+','=2
+'load "'=3
+'" as'=4
+'id='=5
+' text="'=6
+'"'=7
+'group='=8
+'{'=9
+' id='=10
+'}'=11
+' side='=12
+' match='=13
+'as'=14
+'id = '=15
+'text = "'=16
+'" answer = "'=17
+'quiz'=21
+'add group'=22
+'add'=23
+'all'=24
+'remove'=25
+'define-answer'=26
+'define-mark'=27
+'evaluation'=28
+'multi-choice'=29
+'short-answer'=30
+'numeric-answer'=31
+'essay-answer'=32
+'option'=33
+'from'=35
+'get'=36
+'to'=37
+'answer'=38
+'show'=39
+'shuffle'=40
+'and'=41
+'with'=42
+'group'=43
+'choice'=44
+'match'=45
+'matching'=46
+'question'=47

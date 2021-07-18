@@ -1,0 +1,16 @@
+##
+    Exemplo banco de perguntas,e é este ficheiro que é usado no exemplo2.quiz
+##
+short id = A1 text = "Em que ano estamos?" answer = "2021"
+short id = A2 text = "Completa a frase: Quem não tem cão caça com ________ (responder em minusculas)" answer = "gato"
+
+numeric id = A3 text = "Pi (com duas casas decimais):" answer = 3.14
+numeric id = A4 text = "3*3" answer = 9
+
+multi-choice id =A5 text = "Qual destes animais vive na água" {
+    option id = aa1 text = "Leão" 
+    option id = aa2 text = "Girafa" 
+    option id = aa3 text = "Elefante" 
+    option id =aa4 text = "Peixe" 
+    option id = aa5 text = "Gato" 
+}

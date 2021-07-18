@@ -1,0 +1,43 @@
+
+
+multi-choice id = P1 text = "O que quer dizer Adios em português?" {
+    option id = o1 text = "Olá"
+    option id = o2 text = "Bom dia"
+    option id = o3 text = "Adeus"
+    option id = o4 text = "Viva"  
+}
+
+matching id = cores1234 text = "Corresponda as cores:" {
+    option id = aa text = "Blue" side = "0" match = cc
+    option id = bb text = "Red" side = "0" match = dd
+    option id = cc text = "Azul" side = "1" match = aa
+    option id = dd text = "Vermelho" side = "1" match = bb
+}
+
+
+multi-choice id = perguntaSigla text = "C é a sigla da cadeira de..." {
+    option id = o5 text = "Compiladores" 
+    option id = o6 text = "Cartas"  
+    option id = o7 text = "Computadores"  
+    option id = o8 text = "Casamento" 
+    option id = o9 text = "Comentário"  
+    option id = o10 text = "Carros"  
+}
+
+multi-choice id = rgb text = "Cores do RGB?" {
+    option id = m1 text = "red green blue"
+    option id = m2 text = "red yellow black"  
+    option id = m3 text = "blue orange yellow"  
+    option id = m4 text = "red gray yellow"  
+}
+
+short id = P2 text = "Extensão de um ficheiro de gramática de ANTLR-4?" answer = ".g4"
+short id = P3 text = "Cristiano ________" answer = "Ronaldo"
+
+numeric id = P4 text = "Pi (com duas casas decimais):" answer = 3.14
+numeric id = P5 text = "2+2=" answer = 4
+
+
+short id = P6 text = "Melhor clube nacional:"
+
+essay id = compEssay text = "Explique, por palavras suas, o que é um visitor."

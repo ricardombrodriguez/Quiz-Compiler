@@ -1,0 +1,91 @@
+##
+    Este ficheiro destina-se a mostrar erros que semânticos
+    e que devido a isso não passam para a compilação devido a estes erros
+    
+##
+
+finish quiz
+
+create quiz title ="teste de cd" auto-corrective 20 
+create quiz title ="ola"
+
+
+load "exemplo_v2.txt" as b1
+
+add group Desporto 
+add group Desporto
+add group Compiladores, xpto
+add group Compiladores
+
+multi-choice id = P1 text = "Texto da pergunta" {
+    option id = o1 text = "Texto da opção" 
+    option id = o2 text = "Texto da opção" 
+    option id = o3 text = "Texto da opção" 
+    option id = o4 text = "Texto da opção" 
+}
+
+multi-choice id = P3 text = "Texto da pergunta" {
+    option id = o1 text = "Texto da opção" 
+    option id = o2 text = "Texto da opção" 
+    option id = o3 text = "Texto da opção" 
+    option id = o4 text = "Texto da opção" 
+}
+
+option-multi id = o5 text = "Texto" 
+option-multi id = o6 text = "Texto"
+
+from b1 import P1 as P2
+
+add o5 to P1, P2
+add o6 to all 
+add o5 to P1
+show P1
+
+shuffle P1
+show P1
+
+shuffle P1
+show P1 with o1, o3, o4
+get answer to P1
+
+shuffle P2
+show P3 with o2, o3, o4, o1 and P2
+get choice
+get answer to choice 
+
+
+remove o2 from P2
+
+add P1, P2 to group xpto
+
+
+
+matching id = P5 text = "Texto da pergunta" {
+    option id = o6 text = "Texto" side = "0" match = o10
+    option id = o7 text = "Texto" side = "0" match = o9
+    option id = o9 text = "Texto" side = "1" match = o7
+    option id = o10 text = "Texto" side = "1" match = o6
+}
+
+
+
+
+short-question id = P6 text = "Texto de Pergunta" answer = "Resposta"
+
+short-question id = P54 text = "Texto de Pergunta" answer = "Resposta", answer = "Resposta", answer = "Resposta"
+
+numeric-question id = P7 text = "Texto de Pergunta" answer = 3.5
+
+
+essay-question id = P7 text = "Texto de Pergunta"
+
+shuffle P7
+define-answer o6 to P2  
+
+evaluation group xpto { 
+    define-mark 2 to P2
+    define-mark 3 to P2 if wrong repeat 3 times discount = 1
+}
+add o5 to P7
+create report
+finish quiz

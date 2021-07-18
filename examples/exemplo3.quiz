@@ -1,0 +1,45 @@
+##
+    Este é o terceiro exemplo da nossa linguagem onde
+    vamos utilizar apenas perguntas do banco de perguntas
+##
+
+create quiz title ="Exame final de programação" auto-corrective 20 
+load "FicheiroBancoPerguntas.quiz" as b1
+
+create report
+
+
+add group Ex1,Ex2,Ex3,Ex4
+from b1 import P1,cores1234,perguntaSigla, rgb,P2,P4,P3,P5
+
+add P1,P2 to group Ex1
+show P1
+show P2
+evaluation group Ex1{
+define-mark 2.5 to P1
+define-mark 2.5 to P2 if wrong  show perguntaSigla
+define-mark 1 to perguntaSigla
+}
+define-answer o3 to P1
+define-answer o5 to perguntaSigla
+
+add cores1234,rgb to group Ex2
+show cores1234
+evaluation group Ex2{
+define-mark 3 to cores1234
+define-mark 2 to rgb
+}
+add P3,P4 to group Ex3
+show P3
+show P4
+evaluation group Ex3{
+define-mark 3 to P3
+define-mark 3 to P4
+}
+add P5 to group Ex4
+evaluation group Ex4{
+define-mark 4 to P5
+}
+
+finish quiz
+

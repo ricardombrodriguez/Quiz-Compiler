@@ -1,0 +1,28 @@
+create quiz title = "Teste" auto-corrective 20
+multi-choice id = P1 text = "Qual o número do anfiteatro onde tem a aula prática de C" {
+    option id = o1 text = "Anfiteatro IV" 
+    option id = o2 text = "Anfiteatro V" 
+    option id = o3 text = "Anfiteatro I" 
+    option id = o4 text = "Anfiteatro III" 
+}
+multi-choice id = P7 text = "Qual destes animais vive na água" {
+    option id = aa1 text = "Leão" 
+    option id = aa2 text = "Girafa" 
+    option id = aa3 text = "Elefante" 
+    option id = aa4 text = "Peixe" 
+    option id = aa5 text = "Gato" 
+}
+add group G1
+add P1,P7 to group G1
+
+evaluation group G1 {
+    define-mark 10 to P1
+    define-mark 10 to P7 if wrong show P1
+}
+
+get choice P1 and P7 with aa1, aa2, aa3 
+
+show group G1 {
+    show P7
+    get answer P7
+}

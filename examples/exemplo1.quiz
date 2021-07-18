@@ -1,0 +1,65 @@
+##
+Exemplo de como fazer um quiz na linguagem quiz.
+Neste primeiro quiz não vai haver interação com a linguagem secundária
+##
+
+create quiz title = "Teste de C"
+add group Tema1,Tema2,Tema3
+
+essay-question id = P1 text = "Defina Compilador"
+add P1 to group Tema1
+numeric-question id = P2 text = "Qual a raiz quadrada de 4" answer = 2
+add P2 to group Tema1
+multi-choice id =P3 text = "Qual o número do anfiteatro onde tem a aula prática de C" {
+    option id = o1 text = "Anfiteatro IV" 
+    option id = o2 text = "Anfiteatro V" 
+    option id = o3 text = "Anfiteatro I" 
+    option id = o4 text = "Anfiteatro III" 
+}
+show P1
+get answer to P1
+show P2
+get answer to P2
+remove o3 from P3
+shuffle P3
+show P3
+get answer to P3
+add P3 to group Tema2
+define-answer o1 to P3
+short-question id = P4 text = "Qual a linguagem utilizada para criar gramaticas?" answer = "antlr4"
+add P4 to group Tema2
+show P4
+get answer to P4
+matching id = P5 text = "Faça a correspondencia correta das expressoes " {
+    option id = p1 text = "2+2=" side = "0" match = p3
+    option id = p2 text = "2-3=" side = "0" match = p4
+    option id = p3 text = "4" side = "1" match = p1
+    option id = p4 text = "-1" side = "1" match = p2
+}
+add P5 to group Tema2
+shuffle P5
+show P5
+get answer to P5
+matching id = P6 text = "Faça a correspondencia correta das expressoes " {
+    option id = p1 text = "Portugal" side = "0" match = p4
+    option id = p2 text = "França" side = "0" match = p3
+    option id = p3 text = "Paris" side = "1" match = p2
+    option id = p4 text = "Lisboa" side = "1" match = p1
+}
+add P6 to group Tema2
+show P6
+get answer to P6
+multi-choice id =P7 text = "Qual destes animais vive na água" {
+    option id = aa1 text = "Leão" 
+    option id = aa2 text = "Girafa" 
+    option id = aa3 text = "Elefante" 
+    option id =aa4 text = "Peixe" 
+    option id = aa5 text = "Gato" 
+}
+add P7 to group Tema3
+show P7 with aa1,aa2,aa3,aa4
+get answer to P7
+define-answer aa4 to P7
+create report
+finish quiz
+

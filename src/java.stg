@@ -1,0 +1,286 @@
+scanner ::= [
+    "Integer"  : "sc.nextInt()",
+    "Double"   : "sc.nextDouble()",
+    "String"   : "sc.nextLine()",
+    "integer"  : "sc.nextInt()",
+    "double"   : "sc.nextDouble()",
+    "string"   : "sc.nextLine()",
+    "int"      : "sc.nextInt()",
+    "close"    : "sc.close()",
+    default    : "sc.nextLine()"
+]
+
+//Todos os tipos de variáveis que podemos declarar/inicializar
+
+//eu acho que devia dar porque eu faço import das classes
+
+typeValue ::= [
+    "Integer"                   : "int",
+    "integer"                   : "int",
+    "Double"                    : "double",
+    "double"                    : "double",
+    "Boolean"                   : "boolean",
+    "String"                    : "String",
+    "boolean"                   : "boolean",
+    "string"                    : "String",
+    "int"                       : "int",
+    "void"                      : "void",
+    "Void"                      : "void",
+    "Quiz"                      : "Quiz",  
+    "Essay"                     : "Essay",
+    "Matching"                  : "Matching",
+    "MatchingOption"            : "MatchingOption",
+    "MultiChoice"               : "MultiChoice",
+    "MultiChoiceOption"         : "MultiChoiceOption",
+    "Numeric"                   : "Numeric",
+    "Option"                    : "Option",
+    "Question"                  : "Question",
+    "ShortQ"                    : "ShortQ",
+    "Group"                     : "Group",
+    default                     : "null"
+]
+
+
+// ======================== DONE =========================
+module(name,stat) ::= <<
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import classes.*;
+
+public class <name> {
+    public static void main(String[] args) {
+        Group g;
+        String[] groups;
+        ArrayList\<Question> questions_string;
+        ArrayList\<Group> groups_string;
+        ArrayList\<String> matchingoptions_string;
+        MatchingOption matchingoption_object;
+        ArrayList\<String> multichoiceoptions_string;
+        MultiChoiceOption multichoiceoption_object;
+        ArrayList\<String> shortquestion_answers;
+        String [] question_names;
+        String[] options;
+        int contador =0;
+        //adicionar aqui variáveis
+       
+        <stats(stat)>
+        
+    }
+} 
+>>
+
+// ======================== DONE =========================
+stats(stat) ::= <<
+<if(stat)><stat; separator="\n"><endif>
+>>
+
+
+
+// ======================== DONE =========================
+createQuiz(quizname) ::= <<
+Quiz quiz = new Quiz(<quizname>); 
+>>
+
+
+
+// ======================== DONE =========================
+createQuizAutoCorrective(quizname,number) ::= <<
+<createQuiz(quizname)>
+quiz.defineMark(<number>);
+quiz.setAutoCorrective(true);
+>>
+
+
+
+// ======================== DONE =========================
+createGroup(id) ::= <<
+Group <id> = new Group("<id>");
+quiz.addGroup(<id>);
+>>
+
+
+
+// ======================== DONE =========================
+createMultiGroup(stat) ::= <<
+<stats(stat)>
+>>
+
+
+
+// ======================== DONE =========================
+addOption(option,array) ::= <<
+question_names = new String[] {<array>};
+for (String g1 : question_names) {
+    Question question = quiz.getQuestion(g1);
+    question.addOption(<option>);
+}
+
+>>
+
+
+
+// ======================== DONE =========================
+addOptionAll(opt) ::= <<
+quiz.addOptionToAll(<opt>);
+>>
+
+
+
+addQuestion2Group(questions, groups) ::= <<
+questions_string = new ArrayList\<Question>(Arrays.asList(<questions>));
+groups_string = new ArrayList\<Group>(Arrays.asList(<groups>));
+for (Question pergunta : questions_string) {
+    for (Group grupo : groups_string) {
+        quiz.addQuestion(pergunta,grupo.getName());
+    }    
+}
+>>
+
+
+
+
+// ======================== DONE =========================
+multichoice(id,title,options,num) ::= <<
+multichoiceoptions_string = new ArrayList\<String>(Arrays.asList(<options>));
+MultiChoice <id> = new MultiChoice("<id>",<title>);
+for (int i = 0; i \< <num>; i += 2){
+    multichoiceoption_object = new MultiChoiceOption(multichoiceoptions_string.get(i),multichoiceoptions_string.get(i+1));
+    <id>.addOption(multichoiceoption_object); 
+}
+quiz.addQuestion(<id>);      
+>>
+
+
+matching(id,title,options,num) ::= <<
+matchingoptions_string = new ArrayList\<String>(Arrays.asList(<options>));
+Matching <id> = new Matching("<id>",<title>);
+for (int i = 0; i \< <num>; i += 4){
+    matchingoption_object = new MatchingOption(matchingoptions_string.get(i),matchingoptions_string.get(i+1),Integer.parseInt(matchingoptions_string.get(i+2)),matchingoptions_string.get(i+3));
+    <id>.addOption(matchingoption_object);
+}
+quiz.addQuestion(<id>);
+>>
+
+
+// ======================== DONE =========================
+shortquestion(id,text,answers) ::= <<
+shortquestion_answers = new ArrayList<String> (Arrays.asList(<answers>));
+ShortQ <id> = new ShortQ("<id>",<text>,shortquestion_answers);
+quiz.addQuestion(<id>);
+>>
+
+
+
+// ======================== DONE =========================
+essayquestion(id,text) ::= <<
+Essay <id> = new Essay("<id>",<text>);
+quiz.addQuestion(<id>);
+>>
+
+
+
+// ======================== DONE =========================
+numeric(id,text,hasanswer,answer) ::= <<
+<if(hasanswer)>Numeric <id> = new Numeric("<id>",<text>,<answer>);
+<else>Numeric <id> = new Numeric("<id>",<text>);
+<endif>
+quiz.addQuestion(<id>);
+>>
+
+
+// ======================== DONE =========================
+createreport() ::=<<
+quiz.createReport();
+>>
+
+
+
+// ======================== DONE =========================
+shuffle(id) ::= <<
+<id>.shuffle();
+>>
+
+
+showBasic(id) ::= <<
+<id>.show(null);
+>>
+
+
+showMultiOpt(id, options) ::= <<
+options = new String[] {<options>};
+<id>.show(options);
+>>
+
+
+showMultiOptandQuestion(stat) ::= <<
+<stats(stat)>
+>>
+
+remove(id, op) ::= <<
+<id>.remove(<op>);
+>>
+
+eliminar(option,question) ::= <<
+<question>.removeOption("<option>");
+>>
+
+definirResposta(option,questions) ::= <<
+questions_string = new ArrayList\<Question>(Arrays.asList(<questions>));
+for (Question question : questions_string) {
+    question.defineAnswer("<option>");
+}
+>>
+
+optionMult(id, text) ::= <<
+MultiChoiceOption <id> = new MultiChoiceOption("<id>", <text>);
+>>
+
+getAnswer(id) ::= <<
+quiz.getAnswer("<id>");
+>>
+
+definirCotacaoSemDesconto(mark,question) ::= <<
+<question>.defineMark(<mark>);
+>>
+
+definirCotacaoMudaPergunta(mark,question_id,wrong_question) ::= <<
+<question_id>.defineMark(<mark>);
+quiz.getQuestion("<question_id>").wrongAction("show", new String[] {"<wrong_question>"});
+>>
+
+
+DefinirCotacaoDescontar(mark,question,n_repeat,discount) ::= <<
+<question>.defineMark(<mark>);
+quiz.getQuestion("<question>").wrongAction("repeat", new String[] {"<n_repeat>", "<discount>"});
+>>
+
+
+finish() ::= <<
+quiz.finishQuiz();
+>>
+
+showGroup(stat,groupname) ::= <<
+g = quiz.getGroup("<groupname>");
+<stats(stat)>
+>>
+
+evaluate(stat) ::= <<
+<stats(stat)>
+>>
+
+import_expr(stat) ::= <<
+<stats(stat)>
+>>
+
+getChoice(id1, options1, id2, options2) ::= <<
+String[] options1 = new String[] {<options1>};
+String[] options2 = new String[] {<options2>};
+String userChoice = quiz.getChoice(<id1>, options1, <id2>, options2);
+>>
+
+getAnswerToChoice()::=<<
+quiz.getAnswer( userChoice );
+>>
+
